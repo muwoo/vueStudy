@@ -9,7 +9,7 @@ var volidate = (function () {
     codeRep: /1[3|5|7|8|]\d{9}/,
     phoneRep: /^1\d{10}/
   }
-});
+})();
 
 
 var CheckObject = function () {

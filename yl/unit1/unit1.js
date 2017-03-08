@@ -6,13 +6,21 @@
 function checkusername(){
     var regex=/^(?!_)(?!.*?_$)[0-9A-Za-z_\u4e00-\u9fa5]{2,12}$/;
     var username=document.getElementById("userName").value;
-    console.log(regex.exec(username));
+    if(regex.exec(username)===null){
+        console.log("请输入正确的用户名")
+    }else{
+        console.log("验证成功")
+    }
 };
 // 密码验证
 function checkpassword(){
     var regex=/^[0-9A-Za-z]{6,20}$/;
     var password=document.getElementById("userPwd").value;
-    console.log(regex.exec(password));
+    if(regex.exec(password)===null){
+        console.log("请输入正确的密码")
+    }else{
+        console.log("验证成功")
+    }
 }
 // 随机生成效验码
 window.onload=function(){
@@ -46,7 +54,11 @@ function checkcode(){
 }
 // 手机号验证
 function checkphone(){
-    var regex=/^1[3|5][0-9]\d{11}$/;
+    var regex=/^1[0-9]\d{9}$/;
     var phone=document.getElementById("userPhone").value;
-    console.log(regex.exec(phone));
+    if(regex.exec(phone)===null){
+        console.log("请输入正确的手机号")
+    }else{
+        console.log("验证成功")
+    }
 }

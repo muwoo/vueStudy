@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    .inputW{
+      width:210px;
+      height: 22px;
+    }
+  </style>
 </head>
 <body>
-
+<form action="" style="background-color: lightblue;margin: 0 auto;width: 300px;">
+  <fieldset>
+    <legend>表单验证</legend>
+    <p>
+      邮箱:</br>
+      <input type="text" name="mail" id="mail" class="inputW" onblur="checkmail()">
+    </p>
+      用户名:</br>
+      <input type="text" name="userName" id="userName" class="inputW" onblur="checkname()">
+    </p>
+    <p>
+      密码:</br>
+      <input type="text" name="psd" id="psd" class="inputW" onblur="checkpsd()">
+    </p>
+    <p>
+      验证码:</br>
+      <input type="text" name="indentCode" id="indentCode" class="inputW" onblur="checkcode()">
+    </p>
+    <p>
+      手机号:</br>
+      <input type="text" name="phone" id="phone" class="inputW" onblur="checkphone()">
+    </p>
+  </fieldset>
+</form>
 </body>
+<script src="./unit1.js"></script>
 </html>

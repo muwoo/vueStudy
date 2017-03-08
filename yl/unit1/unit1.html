@@ -3,8 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="unit1.css">
 </head>
 <body>
-
+  <div class="wrap">
+    <div class="header">表单验证</div>
+    <div class="content">
+      <form action="">
+        <ul>
+          <li>
+            <lable>用户名：</lable>
+            <input type="text" oninput="checkusername()" placeholder="请输入用户名" id="userName">
+          </li>
+          <li>
+            <lable>密&nbsp;码：</lable>
+            <input type="password" oninput="checkpassword()" placeholder="请输入密码" id="userPwd">
+          </li>
+          <li>
+            <input type="text" onblur="checkcode()" placeholder="请输入效验码" id="checkCode">
+            <span onclick="verifycode()" id="verifyCode"></span>
+          </li>
+          <li>
+            <input type="text" oninput="checkphone()" placeholder="请输入手机号" id="userPhone">
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+  <script src="unit1.js" async></script>
 </body>
 </html>

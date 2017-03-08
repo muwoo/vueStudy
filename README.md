@@ -60,5 +60,6 @@ app2.data.major = 'science'  // 你设置了 major，新的值为 science
 * 传入参数只考虑对象，不考虑数组。
 * new Observer返回一个对象，其 data 属性要能够访问到传递进去的对象。
 * 通过 data 访问属性和设置属性的时候，均能打印出右侧对应的信息。
+
 ######参考资料
 [vue早期源码学习系列之一：如何监听一个对象的变化](https://github.com/youngwind/blog/issues/84)

@@ -1,6 +1,7 @@
 # javascript-
 ##目录层次：
-
+ 目前学习曲线有三个前端开发，每个人有各自的目录，可以很好地对比彼此的代码。
+ ![image](https://github.com/monkeyWangs/javascript-/blob/master/images/discribe.png)
 ##unit1 
 *  邮箱验证
 *  用户名 数字、字母、中文 、划线不能以下划线开头 2-12位

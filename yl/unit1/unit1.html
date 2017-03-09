@@ -13,18 +13,18 @@
         <ul>
           <li>
             <lable>用户名：</lable>
-            <input type="text" oninput="checkusername()" placeholder="请输入用户名" id="userName">
+            <input type="text" oninput="CheckObject.prototype.checkusername()" placeholder="请输入用户名" id="userName">
           </li>
           <li>
             <lable>密&nbsp;码：</lable>
-            <input type="password" oninput="checkpassword()" placeholder="请输入密码" id="userPwd">
+            <input type="password" oninput="CheckObject.prototype.checkpassword()" placeholder="请输入密码" id="userPwd">
           </li>
           <li>
-            <input type="text" onblur="checkcode()" placeholder="请输入效验码" id="checkCode">
-            <span onclick="verifycode()" id="verifyCode"></span>
+            <input type="text" onblur="CheckObject.prototype.checkcode()" placeholder="请输入效验码" id="checkCode">
+            <span onclick="CheckObject.prototype.verifycode()" id="verifyCode"></span>
           </li>
           <li>
-            <input type="text" oninput="checkphone()" placeholder="请输入手机号" id="userPhone">
+            <input type="text" oninput="CheckObject.prototype.checkphone()" placeholder="请输入手机号" id="userPhone">
           </li>
         </ul>
       </form>

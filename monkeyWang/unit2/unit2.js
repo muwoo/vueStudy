@@ -18,11 +18,11 @@ FootBall.prototype = {
   getWeight: function () {
     return this.weight;
   },
-  setPepole: function (pepole) {
-    this.pepole = pepole;
+  setPeople: function (people) {
+    this.people = people;
   },
-  getPepole: function () {
-    return this.pepole;
+  getPeople: function () {
+    return this.people;
   },
   setHistory: function (history) {
     this.history = history;
@@ -41,7 +41,7 @@ FootBall.prototype = {
  */
 var footBall = new FootBall('960');
 footBall.setWeight('10kg');
-footBall.setPepole(12);
+footBall.setPeople(12);
 footBall.setHistory('足球起源于英国');
 
 /**

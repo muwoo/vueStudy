@@ -44,7 +44,7 @@ Basketball.prototype = {
     return 10;
   },
   getHistory:function () {
-    return ''
+    return '篮球很蓝'
   }
 };
 var football = new Football();

@@ -29,10 +29,10 @@ football.setWeight('12kg');
 football.setPeople(12);
 football.setHistory('足球的历史');
 //创建一个篮球类
-var Basketball = function () {
+function Basketball() {
   if(!(this instanceof Basketball)) return new BasketBall();
-  Football.call(this,Basketball); //改变this的指向
-};
+  Football.call(this);//改变this的指向
+}
 //让篮球类的原型变成Football的一个实例
 Basketball.prototype = new FootBall();
 
@@ -40,13 +40,14 @@ var Sports = function (sport) {
   if(!(this instanceof Sports)) return new Sports;
   switch (sport){
     case 'football':
-      return Football();
+      return new FootBall();
       break;
     case 'basketball':
-      return Basketball();
+      return new BasketBall();
       break;
   }
 }; //创建一个运动类
 var sport = new Sports('football');
+sport.setWeight('15kg');
 sport.getWeight();
 

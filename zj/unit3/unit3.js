@@ -46,6 +46,8 @@ var i = new Observer({
   name:'zj',
   phone:110
 });
+//var i = Object.setProperty({},Observer.prototype);
+//F.call(i)
 i.data.name //你访问了name属性
 i.data.name = 'silence' //你设置了name的属性为:silence
 

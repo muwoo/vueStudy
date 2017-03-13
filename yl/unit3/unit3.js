@@ -6,17 +6,20 @@ function Observer(data){
 Observer.prototype.walk=function (obj) {
     for(var key in obj){
         if(obj.hasOwnProperty(key)){
-            this.convert(this.data,key)
+            var val = obj[key];
+            this.convert(val,key)
         }
     }
 };
-Observer.prototype.convert=function(obj,key){
-    Object.defineProperty(obj,key,{
+Observer.prototype.convert=function(val,key){
+    Object.defineProperty(this.data,key,{
         get:function(){
-            console.log('你访问了'+key)
+            console.log('你访问了'+key);
+            return val;
         },
         set:function(newVal){
             console.log('你设置了'+key+'新的值为'+newVal)
+            val = newVal;
         }
     })
 }

@@ -8,7 +8,7 @@ var Observer = function (data) {
   this.change(data);
 };
 Observer.prototype.change = function (obj) {
-  let tempVal;
+  var tempVal;
   //遍历obj的所有属性，包括继续属性
   for(var key in obj){
     //判断这个属性是不是obj的自身属性

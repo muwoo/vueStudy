@@ -5,7 +5,15 @@
   <title>Title</title>
 </head>
 <body>
-
+  <div id="parent1"></div>
+  <div id="parent2"></div>
 </body>
-<script src="re-unit2.js"></script>
+<script>
+  var parent1 = document.getElementById('parent1');
+  var parent2 = document.getElementById('parent2');
+  var child = document.createElement('span');
+  parent1.appendChild(child);
+  parent2.appendChild(child);
+
+</script>
 </html>

@@ -158,7 +158,7 @@ let app = new Vue({
 ```html
 <!-- 最终在页面中渲染出来的结果 -->
 <div id="app">
-    <p>姓名：youngwind</p>
+    <p>姓名：monkeyWang</p>
     <p>年龄：25</p>
 </div>
 ```

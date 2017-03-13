@@ -37,7 +37,7 @@ Observer.prototype.$dispatch = function (key,args) {
   if(!_message[key]) return;
   var len = _message[key].length;
   for(var i = 0;i<len;i++){
-    _message[key][i][args];
+    _message[key][i](args);
   }
 
 };

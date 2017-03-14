@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>unit6</title>
+</head>
+<body>
+<div id="app">
+  <p>姓名：{{user.name}}</p>
+  <p>年龄：{{user.age}}</p>
+  <p>{{msg}}</p>
+  <input type="text" v-model="msg">
+</div>
+</body>
+<script>
+  var Observer =  function (obj, parent) {
+    this.data = obj;
+    parent = parent || '';
+    this.walk(obj, parent);
+  };
+  Observer.prototype.walk = function (obj, parent) {
+    for(var key in obj){
+      if(obj.hasOwnProperty(key)){
+        if(typeof obj[key] === 'object'){
+          new Observer(obj[key], parent+key+'.');
+        }
+        this.setProperty(key, obj[key], parent);
+      }
+    }
+  };
+  Observer.prototype.setProperty = function (key, value, parent) {
+    parent = parent || '';
+    var selectorHtml = document.querySelectorAll('[data-vue-tag="'+parent+key+'"]');
+    Object.defineProperty(this.data, key, {
+      set: function (newValue) {
+        console.log(123);
+        [].forEach.call(selectorHtml, function (el) {
+          value = el.textContent = newValue;
+        });
+      },
+      get: function () {
+        return value;
+      }
+    })
+  };
+  var Vue = function (opt) {
+    var _selector = opt.el;
+    this.data = opt.data;
+    var el = selectorQuery(_selector);
+    var self = this;
+    var content = el.innerHTML.replace(/\{\{(.*)\}\}/g, markToken);
+    el.innerHTML = content;
+
+    var binding = new Observer(this.data);
+    for(var i in opt.data){
+      if(typeof opt.data[i] === 'object'){
+        for(var key in opt.data[i]){
+          binding.data[i][key] = opt.data[i][key];
+        }
+      }
+      binding.data[i] = opt.data[i]
+    }
+    var elInput = el.getElementsByTagName('input');
+    [].forEach.call(elInput,function (el) {
+      var variable = el.getAttribute('v-model');
+      if(variable){
+         el.value = binding.data[variable];
+         el.addEventListener('input', function (e) {
+           binding.data[variable] = el.value;;
+         })
+      }
+    })
+    function markToken(text, variable) {
+      return '<span data-vue-tag="'+variable+'"></span>'
+    }
+    function inputToken(text, variable) {
+      console.log(variable)
+      //return '<span data-vue-tag="'+variable+'"></span>'
+    }
+    function selectorQuery(str) {
+      if (!str) return;
+      var tag = str.substring(0, 1);
+      var elStr = str.substring(1);
+      switch (tag) {
+        case '#':
+          return document.getElementById(elStr);
+          break;
+        case '.':
+          return document.getElementsByClassName(elStr);
+          break;
+        default:
+          return document.getElementsByTagName(str);
+      }
+    }
+
+  };
+  var app = new Vue({
+    el: '#app',
+    data: {
+      msg: 'hello',
+      user: {
+        name: 'monkeyWang',
+        age: 25
+      }
+    }
+  });
+</script>
+</html>

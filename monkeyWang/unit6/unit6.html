@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>unit6</title>
+</head>
+<body>
+<div id="app">
+  <p>姓名：{{user.name}}</p>
+  <p>年龄：{{user.age}}</p>
+  <p>{{msg}}</p>
+</div>
+</body>
+<script>
+  var Vue = function (opt) {
+    var _selector = opt.el;
+    this.data = opt.data;
+    var el = selectorQuery(_selector);
+    var self = this;
+    var content = el.innerHTML.replace(/\{\{(.*)\}\}/g, markToken);
+    el.innerHTML = content;
+
+    function markToken(text, variable) {
+      var variables = variable.split('.');
+      var val = self.data;
+      variables.forEach(function (key) {
+        val = val[key];
+      });
+      return '<span>' + val + '</span>'
+    }
+
+    function selectorQuery(str) {
+      if (!str) return;
+      var tag = str.substring(0, 1);
+      var elStr = str.substring(1);
+      switch (tag) {
+        case '#':
+          return document.getElementById(elStr);
+          break;
+        case '.':
+          return document.getElementsByClassName(elStr);
+          break;
+        default:
+          return document.getElementsByTagName(str);
+      }
+    }
+  };
+  var app = new Vue({
+    el: '#app',
+    data: {
+      msg: 'hello',
+      user: {
+        name: 'monkeyWang',
+        age: 25
+      }
+    }
+  });
+</script>
+</html>

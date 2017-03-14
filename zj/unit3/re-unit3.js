@@ -2,6 +2,7 @@
  * Created by admin on 2017/3/13.
  */
 function Observer(data) {
+  if(! this instanceof Observer) return new Observer(data);
   this.data = data;
   this.walk(this.data);
 }
@@ -11,7 +12,7 @@ Observer.prototype.walk = function (obj) {
       var val = obj[key];
       this.convert(key,val);
       if(typeof val === 'object'){
-        return new Observer(val);
+        return new Observer(val)
       }
     }
   }
@@ -23,9 +24,9 @@ Observer.prototype.convert = function (key,val) {
       return val;
     },
     set:function (newVal) {
-      console.log('你改变了属性'+key+'值为'+newVal);
+      console.log('你重新设置了'+key+'为'+newVal);
       val = newVal;
-      return newVal;
+      return val;
     }
   })
-};
+}

@@ -187,4 +187,5 @@ let app = new Vue({
 ```
 ###### 相对简单的目标是说：无论是修改数据的哪一部分（包括没有在页面中出现的 school 和 major 这两部分），DOM 都会重新渲染。（即便前后渲染结果一致）相对困难的目标是说：只有当 user.name 和 user.age 发生改变的时候，DOM 才会重新渲染；而 school 和 major 的变化不会引发重新渲染。最后，无论你选择哪种难度，能完成本题，就已经很棒了!
 
-
+## unit8 开发简单的豆瓣电影 web App
+#### 可以参考[豆瓣githubMovie](https://github.com/monkeyWangs/doubanMovie)
